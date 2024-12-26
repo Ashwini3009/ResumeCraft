@@ -1,0 +1,200 @@
+
+/* About Section Styles */
+.about-section {
+    margin: 100px 20px;
+    padding: 50px 10%;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+.about-section h1 {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.about-section p {
+    font-size: 1.1em;
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 40px;
+}
+
+.about-section h2 {
+    font-size: 2em;
+    color: #333;
+    margin-top: 40px;
+}
+
+.developer-message {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    margin-top: 40px;
+}
+
+.developer {
+    margin-bottom: 30px;
+}
+
+.developer h4 {
+    font-size: 1.5em;
+    color: #00bfa6;
+    margin-bottom: 15px;
+}
+
+.developer p {
+    font-size: 1.1em;
+    color: #555;
+    line-height: 1.6;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+
+
+/* Developer Message Conversation */
+.developer-message {
+    margin-top: 50px;
+}
+
+.developer-conversation {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.developer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.message {
+    padding: 15px 20px;
+    border-radius: 10px;
+    font-size: 1rem;
+    max-width: 80%;
+    position: relative;
+}
+
+.left .message {
+    background-color: #e3f2fd;
+    margin-left: 0;
+    margin-right: auto;
+    border-left: 4px solid #1e88e5;  /* Blue border for Ashwini */
+}
+
+.right .message {
+    background-color: #e8f5e9;
+    margin-left: auto;
+    margin-right: 0;
+    border-right: 4px solid #388e3c;  /* Green border for Charu */
+}
+
+.message h4 {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+}
+
+.message p {
+    margin: 0;
+}
+
+/* Responsive Design for Developer Messages */
+@media (max-width: 768px) {
+    .developer-conversation {
+        gap: 15px;
+    }
+
+    .message {
+        font-size: 0.9rem;
+    }
+}
+
+
+
+
+/* Developer Cards Images CSS */
+
+/* Styling for Developer Cards */
+.developer-cards {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.developer-card {
+    display: flex;
+    flex-direction: column;
+    width: 250px; /* Card width */
+    height: 350px; /* Card height */
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-photo {
+    width: 100%;
+    height: 80%;
+    overflow: hidden;
+}
+
+.card-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.card-info {
+    padding: 10px;
+    background-color: #f4f4f4;
+    height: 20%;
+    text-align: center;
+}
+
+.card-info h4 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.card-info .qualification {
+    font-size: 1rem;
+    color: #555;
+}
+
+.card-info .qualification sup {
+    font-size: 0.8rem;
+    vertical-align: super;
+    color: #888; /* Slightly lighter color for the superscript */
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .developer-cards {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .developer-card {
+        width: 200px;
+        height: 300px;
+    }
+
+    .card-info h4 {
+        font-size: 1.1rem;
+    }
+
+    .card-info .qualification {
+        font-size: 0.9rem;
+    }
+}

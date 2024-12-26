@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - ResumeCraft</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="{% static 'css/about.css' %}">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>/* Flexbox layout for navbar */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Adds space between each nav item */
+        }
+        
+        .nav-links .dropdown {
+            position: relative; /* Needed for positioning the dropdown */
+        }
+        
+        .nav-links .dropdown .dropdown-menu {
+            display: none; /* Hide dropdown menu by default */
+            position: absolute;
+            top: 100%; /* Position the dropdown directly below the Templates link */
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+        }
+        
+        .nav-links .dropdown:hover .dropdown-menu {
+            display: block; /* Show dropdown on hover */
+        }
+        
+        .nav-links .dropdown .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .nav-links .dropdown .dropdown-menu a:hover {
+            background-color: #f1f1f1;
+        }
+        </style>
+    
+</head>
+<body>
+     <!-- Navbar -->
+<header class="navbar">
+    <div class="logo">
+        <img src="{% static 'img/Resume.png' %}" alt="Logo">
+        <span><h2>ResumeCraft</h2></span>
+    </div>
+    <div class="nav-links">
+        <a href="{% url 'landing' %}">Home</a>
+        <a href="{% url 'about_us' %}">About</a>
+        
+        <!-- Dropdown for Templates -->
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle">Templates</a>
+            <div class="dropdown-menu">
+                <a href="{% url 'resume_templates' %}">Get & Go</a>
+                <a href="{% url 'editableTemplates' %}">Work with us</a>
+            </div>
+        </div>
+
+        <a href="{% url 'upload_file' %}">ATS</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</header>
+
+    <!-- About Us Content -->
+    <section class="about-section">
+        <div class="about-intro">
+            <h1>Welcome to ResumeCraft</h1>
+            <p>ResumeCraft is a one-stop solution for building professional, tailored resumes that stand out. With the guidance of our innovative ATS algorithm and customizable templates, you can create a resume that increases your chances of getting shortlisted.</p>
+        </div>
+        
+        <div class="problem-statement">
+            <h2>The Problem We're Solving</h2>
+            <p>Building a resume is a daunting task, and most of us struggle with presenting ourselves in a way that will impress hiring managers. A resume should not just showcase your experience, but also reflect your skills, aspirations, and unique potential. Many individuals don’t have the time or resources to create a standout resume, and that’s where we come in.</p>
+        </div>
+
+        <div class="why-us">
+            <h2>Why We're the Best Out There</h2>
+            <p>At ResumeCraft, we combine technology with creativity. Our ATS optimization and a wide range of professional templates ensure that your resume is not only visually appealing but also optimized for Applicant Tracking Systems. With our intuitive platform, anyone, whether a fresh graduate or an experienced professional, can create a resume that reflects their true potential.</p>
+        </div>
+
+        <!-- Developer Messages Section -->
+<div class="developer-message">
+    <h3>A Message from Our Developers</h3>
+    <div class="developer-conversation">
+        <!-- Ashwini's Message -->
+        <div class="developer left">
+            <div class="message blue">
+                <h4>Ashwini Singh</h4>
+                <p>"I'm doing my master's MCA, and I know the struggle of building resumes and getting them shortlisted. When I first started applying for jobs, I often felt lost. I knew I had the skills, but my resume wasn’t conveying that to recruiters. I wanted to make the resume-building process easier and more effective for everyone, especially those who are new to the professional world. That’s why I created ResumeCraft – a platform that helps you craft a perfect resume that gets noticed by recruiters and stands out in the competitive job market."</p>
+            </div>
+        </div>
+        
+        <!-- Charu's Message -->
+        <div class="developer right">
+            <div class="message green">
+                <h4>Charu Pundir</h4>
+                <p>"As a fellow developer and job seeker, I faced the same hurdles in creating a resume that truly reflected my professional journey. After seeing the challenges Ashwini faced and the many people struggling with resume-building, I joined this project. Together, we wanted to create a tool that simplifies the process and ensures that resumes are not just documents, but representations of who you are as a professional. We believe ResumeCraft is the solution to a lot of career hurdles, and we're proud to offer it to the world."</p>
+            </div>
+        </div>
+    </div>
+</div>
+    </section>
+
+    <!-- Developer Cards Section -->
+<section class="developer-cards">
+    <div class="developer-card">
+        <div class="card-photo">
+            <img src="{% static 'img/ashwini_photo.jpg' %}" alt="Ashwini Singh">
+        </div>
+        <div class="card-info">
+            <h4>Ashwini Singh</h4>
+            <p class="qualification">MCA - 2<sup>nd</sup> Year</p>
+        </div>
+    </div>
+
+    <div class="developer-card">
+        <div class="card-photo">
+            <img src="{% static 'img/charu_photo.jpg' %}" alt="Charu Pundir">
+        </div>
+        <div class="card-info">
+            <h4>Charu Pundir</h4>
+            <p class="qualification">MCA - 2<sup>nd</sup>Year</p>
+        </div>
+    </div>
+</section>
+</body>
+</html>

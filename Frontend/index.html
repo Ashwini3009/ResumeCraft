@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ATS Resume Score Checker</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>ATS Resume Score Checker</h1>
+    <p>Upload your resume to check its ATS score and get improvement suggestions.</p>
+    
+    <form id="resume-form">
+      <div class="upload-section">
+        <label for="resume-upload" class="upload-label">Choose Resume (PDF or DOCX):</label>
+        <input type="file" id="resume-upload" accept=".pdf, .docx" required />
+      </div>
+
+      <button type="button" class="upload-btn" onclick="checkATS()">Check ATS Score</button>
+    </form>
+
+    <div id="ats-result" class="result">
+      <p id="score-text">Your ATS score will appear here.</p>
+    </div>
+  </div>
+
+  <script>
+    function checkATS() {
+      const fileInput = document.getElementById('resume-upload');
+      const resultText = document.getElementById('score-text');
+
+      if (fileInput.files.length === 0) {
+        alert("Please upload a resume file first.");
+        return;
+      }
+
+      // Simulate the process of checking the ATS score (backend logic would go here)
+      const score = Math.floor(Math.random() * 101);  // Random score between 0 and 100
+      resultText.textContent = `Your ATS score: ${score}/100`;
+
+      // You can also add additional processing feedback here
+    }
+  </script>
+</body>
+</html>

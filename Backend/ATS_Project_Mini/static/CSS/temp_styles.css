@@ -1,0 +1,90 @@
+/* Add extra padding to the top of the page to avoid navbar overlap */
+body {
+    padding-top: 80px;  /* Adjust this value if necessary depending on the navbar height */
+  }
+  
+
+
+
+/* Ensure the images are fully visible within the card */
+.card img {
+    width: 100%;             /* Make the image fill the card's width */
+    height: auto;            /* Maintain the aspect ratio */
+    object-fit: contain;     /* Ensure the entire image is visible without cropping */
+    padding: 10px;           /* Optional padding to give a cleaner look */
+    background-color: #f8f9fa; /* Add a subtle background to contrast images */
+  }
+  
+  /* Hover effect for cards */
+  .card {
+    border: none;
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Center align text content */
+  .card-body {
+    text-align: center;
+  }
+  
+  .card-title a {
+    color: #00bfa6;
+    text-decoration: none;
+  }
+  
+  .card-title a:hover {
+    text-decoration: underline;
+  }
+  
+
+  /* Navbar styling */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgb(177, 125, 143);
+    padding: 10px 20px;
+    color: rgb(77, 19, 77);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    text-decoration: none;
+}
+
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+}
+
+.navbar .logo img {
+    height: 40px;
+    margin-right: 10px;
+}
+.navbar .title {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.navbar .links {
+    display: flex;
+    gap: 15px;
+}
+
+.navbar .nav-links a {
+    color: rgb(77, 19, 77);
+    text-decoration: none;
+    font-size: 1em;
+    transition: color 0.3s;
+    padding:10px;
+}
+
+.navbar .links a:hover {
+    color: #00bcd4;
+}

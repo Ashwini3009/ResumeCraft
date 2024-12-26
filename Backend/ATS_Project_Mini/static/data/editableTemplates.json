@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Editable Modern Resume",
+        "image": "img/editTemp1.png",
+        "description": "A modern and editable resume template for easy customization.",
+        "url": "beginResume"
+    },
+    {
+        "name": "Editable Creative Resume",
+        "image": "img/editTemp2.png",
+        "description": "Perfect for creatives, this editable resume is designed for easy updates.",
+        "url": "beginResume1"
+    },
+    {
+        "name": "Editable Minimalist Resume",
+        "image": "img/editTemp3.png",
+        "description": "A simple and editable resume template for professionals looking for a minimalist layout.",
+        "url": "beginResume2"
+    }
+]

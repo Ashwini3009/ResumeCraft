@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body styling */
+        body {
+            background: linear-gradient(135deg, #dde5f4, #dde5f4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Login container */
+        .login-container {
+            background-color: #f1f7fe;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+
+        .login-container h2 {
+            margin-bottom: 1rem;
+            color: #333;
+            font-size: 1.8rem;
+        }
+
+        /* Input fields */
+        .input-group {
+            margin: 1rem 0;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Button styling */
+        .login-btn {
+            background: linear-gradient(135deg, #3e4684, #3e4684);
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+        }
+
+        .login-btn:hover {
+            background: linear-gradient(135deg, #ff6a00, #ee0979);
+        }
+
+        /* Links */
+        .login-container a {
+            display: block;
+            margin-top: 1rem;
+            text-decoration: none;
+            color: #3e4684;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .login-container {
+                padding: 1.5rem;
+            }
+            .login-container h2 {
+                font-size: 1.5rem;
+            }
+            .input-group input, .login-btn {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Flash message styles */
+        .messages {
+            list-style-type: none;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            background-color: #f8d7da;
+            border-radius: 5px;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .messages li {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Login Page Container -->
+    <div class="login-container">
+        <h2>Login</h2>
+
+        <!-- Flash Message Block -->
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <!-- Login Form -->
+        <form method="post" id="login-form">
+            {% csrf_token %}
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" value="{{ form.email.value }}" required>
+                {% if form.email.errors %}
+                    <ul>
+                        {% for error in form.email.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" value="{{ form.password.value }}" required>
+                {% if form.password.errors %}
+                    <ul>
+                        {% for error in form.password.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="login-btn">Login</button>
+        </form>
+
+        <!-- Forgot Password & Signup Link -->
+        <!-- <a href="#">Forgot Password?</a> -->
+        <a href="{% url 'signup' %}">Don't have an account? Sign Up</a>
+    </div>
+</body>
+</html>

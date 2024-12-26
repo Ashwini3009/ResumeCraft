@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup Page</title>
+    <style>
+        /* Reset Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body styling */
+        body {
+            background: linear-gradient(135deg, #dde5f4, #dde5f4);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Signup container */
+        .signup-container {
+            background-color: #f1f7fe;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 800px;  /* Increased width for two columns */
+            text-align: center;
+        }
+
+        .signup-container h2 {
+            margin-bottom: 1rem;
+            color: #333;
+            font-size: 1.8rem;
+        }
+
+        /* Form styling with Grid layout for two columns */
+        form {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);  /* Two columns */
+            gap: 1.5rem;  /* Space between the columns */
+            margin-bottom: 1.5rem;
+        }
+
+        .input-group {
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+
+        /* Button styling */
+        .signup-btn {
+            background: linear-gradient(135deg, #3e4684, #3e4684);
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            font-size: 1rem;
+            cursor: pointer;
+            width: 100%;
+            transition: background 0.3s;
+            grid-column: span 2;  /* Make the button span across both columns */
+        }
+
+        .signup-btn:hover {
+            background: linear-gradient(135deg, #ff6a00, #ee0979);
+        }
+
+        /* Links */
+        .signup-container a {
+            display: block;
+            margin-top: 1rem;
+            text-decoration: none;
+            color: #3e4684;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            form {
+                grid-template-columns: 1fr;  /* Stack fields in one column on smaller screens */
+            }
+            .signup-container {
+                padding: 1.5rem;
+                max-width: 350px;
+            }
+            .signup-container h2 {
+                font-size: 1.5rem;
+            }
+            .input-group input, .signup-btn {
+                font-size: 0.9rem;
+            }
+        }
+
+        /* Message Styling */
+        .messages {
+            list-style-type: none;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            background-color: #f8d7da;
+            border-radius: 5px;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        .messages li {
+            margin: 0.5rem 0;
+        }
+    </style>
+</head>
+<body>
+    <!-- Signup Page Container -->
+    <div class="signup-container">
+        <h2>Create Account</h2>
+
+        <!-- Flash Message Block -->
+        {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+        <!-- Signup Form -->
+        <form method="post" id="signup-form">
+            {% csrf_token %}
+            
+            <div class="input-group">
+                <label for="first-name">First Name</label>
+                <input type="text" id="first-name" name="first_name" placeholder="Enter your first name" value="{{ form.first_name.value }}" required>
+                {% if form.first_name.errors %}
+                    <ul>
+                        {% for error in form.first_name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="input-group">
+                <label for="last-name">Last Name</label>
+                <input type="text" id="last-name" name="last_name" placeholder="Enter your last name" value="{{ form.last_name.value }}" required>
+                {% if form.last_name.errors %}
+                    <ul>
+                        {% for error in form.last_name.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="input-group">
+                <label for="contact-number">Contact Number</label>
+                <input type="tel" id="contact-number" name="contact_number" pattern="\d{10}" placeholder="Enter your contact number" value="{{ form.contact_number.value }}"  required>
+                {% if form.contact_number.errors %}
+                    <ul>
+                        {% for error in form.contact_number.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" value="{{ form.email.value }}" required>
+                {% if form.email.errors %}
+                    <ul>
+                        {% for error in form.email.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="input-group">
+                <label for="dob">Date of Birth</label>
+                <input type="date" id="dob" name="dob" value="{{ form.dob.value }}" required>
+                {% if form.dob.errors %}
+                    <ul>
+                        {% for error in form.dob.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="input-group">
+                <label for="age">Age</label>
+                <input type="text" id="age" name="age" disabled value="{{ form.age.value }}">
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" placeholder="Enter your password" value="{{ form.password.value }}" required>
+                {% if form.password.errors %}
+                    <ul>
+                        {% for error in form.password.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <div class="input-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm_password" placeholder="Confirm your password" value="{{ form.confirm_password.value }}" required>
+                {% if form.confirm_password.errors %}
+                    <ul>
+                        {% for error in form.confirm_password.errors %}
+                            <li>{{ error }}</li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            </div>
+
+            <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+
+        <!-- Already have an account link -->
+        <a href="{% url 'login' %}">Already have an account? Login</a>
+    </div>
+
+    <script>
+        // Calculate age based on Date of Birth and validate if the user is 18 or older
+        document.getElementById('dob').addEventListener('change', function() {
+            const dob = new Date(this.value);
+            const ageField = document.getElementById('age');
+            const today = new Date();
+            let age = today.getFullYear() - dob.getFullYear();
+            const monthDifference = today.getMonth() - dob.getMonth();
+
+            if (monthDifference < 0 || (monthDifference === 0 && today.getDate() < dob.getDate())) {
+                age--;
+            }
+
+            ageField.value = age;
+
+            if (age < 18) {
+                alert('You must be at least 18 years old to sign up.');
+                document.getElementById('signup-form').reset();
+                ageField.value = '';
+            }
+        });
+    </script>
+</body>
+</html>

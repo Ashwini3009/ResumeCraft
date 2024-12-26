@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Jacob Hancock</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(35, 35, 35, 0.1);
+    }
+
+    header {
+      background-color: #fc6650;
+      padding: 40px 20px;
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+      color: white;
+    }
+
+    .name {
+      font-size: 36px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .title {
+      font-size: 20px;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: white;
+      margin-bottom: 10px;
+      padding: 10px;
+      background-color: #333;
+      border-radius: 5px;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    ul li {
+      margin: 5px 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #fc6650;
+      color: white;
+      border-radius: 0 0 10px 10px;
+    }
+
+    [contenteditable] {
+      outline: 2px dashed #fc6650;
+      outline-offset: 4px;
+    }
+
+    .save-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #fc6650;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .save-btn:hover {
+      background-color: #fc6650;
+    }
+  </style>
+</head>
+<body>
+  <div id="resume" class="container" contenteditable="true">
+    <header>
+      <h1 class="name">JACOB HANCOCK</h1>
+      <p>Nashville, TN</p>
+      <p>805.555.0105 | jacob@example.com</p>
+    </header>
+
+    <section>
+      <h2>Objective</h2>
+      <p>To lead the development of a revolutionary artificial intelligence platform that will disrupt the financial industry and enhance customer experience, by collaborating with cross-functional teams and delivering on time, within budget, and with the highest quality standards.</p>
+    </section>
+
+    <section>
+      <h2>Education</h2>
+      <ul>
+        <li>
+          <strong>MBA | Jasper University</strong>
+          <p>20XX – 20XX</p>
+          <p>Participated in a consulting project for a startup that resulted in a recommendation to pivot their business model, which was implemented and led to increased revenue.</p>
+        </li>
+        <li>
+          <strong>BS Computer Science | Bellows College</strong>
+          <p>20XX – 20XX</p>
+          <p>Courses included Data Structures, Algorithms, Computer Architecture, Operating Systems, and Software Engineering.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Experience</h2>
+      <ul>
+        <li>
+          <strong>Technical Program Manager | Relecloud</strong>
+          <p>20XX – 20XX</p>
+          <p>Oversaw project scope, timelines, and budget, resulting in the successful launch of the new infrastructure and improved site reliability metrics.</p>
+        </li>
+        <li>
+          <strong>Project Manager | Proseware, Inc.</strong>
+          <p>20XX – 20XX</p>
+          <p>Managed a team of software developers and quality assurance specialists in the development and launch of a new customer relationship management (CRM) software product.</p>
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Skills</h2>
+      <ul>
+        <li>Project Management</li>
+        <li>Communication</li>
+        <li>Technical Expertise</li>
+        <li>Problem-Solving</li>
+        <li>Leadership</li>
+        <li>Attention to Detail</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Activities</h2>
+      <p>Participated in several hackathons, including a winning team at the 20XX Hack event, demonstrating the ability to work under pressure and come up with innovative solutions to technical challenges.</p>
+    </section>
+
+    <footer>
+      <p>Resume - Jacob Hancock | All rights reserved</p>
+    </footer>
+
+    
+  </div>
+  <button class="save-btn" onclick="saveAsPDF()">Save as PDF</button>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+
+  <script>
+    function saveAsPDF() {
+        const element = document.getElementById('resume');
+        const opt = {
+            margin: 0.5,
+            filename: 'Resume_Aneela_Mohan.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+        };
+
+        html2pdf().set(opt).from(element).save();
+    }
+</script>
+</body>
+</html>

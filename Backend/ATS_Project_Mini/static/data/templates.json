@@ -1,0 +1,32 @@
+[
+    {
+        "name": "Modern Resume",
+        "image": "img/template1.png",
+        "file": "files/template1.docx",
+        "description": "A sleek and professional resume template suitable for all industries."
+    },
+    {
+        "name": "Creative Resume",
+        "image": "img/template2.png",
+        "file": "files/template2.docx",
+        "description": "Perfect for creatives, this resume showcases design and innovation."
+    },
+    {
+        "name": "Minimalist Resume",
+        "image": "img/template3.png",
+        "file": "files/template3.docx",
+        "description": "A clean and simple layout ideal for professionals with less experience."
+    },
+    {
+        "name": "Template 4",
+        "image": "img/template4.png",
+        "file": "files/template4.docx",
+        "description": "A clean and simple layout ideal for professionals with less experience."
+    },
+    {
+        "name": "Template 5",
+        "image": "img/template5.png",
+        "file": "files/template5.docx",
+        "description": "A clean and simple layout ideal for professionals with less experience."
+    }
+]

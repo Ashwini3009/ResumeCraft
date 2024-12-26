@@ -1,0 +1,185 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload and Download Files</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <style>
+        /* Custom Styles */
+        body {
+            background-color: #f8f9fa; /* Simple white background */
+            font-family: Arial, sans-serif;
+            color: #333;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Banner Styling */
+        .banner {
+            background-color: #e3f2fd; /* Light blue background for banner */
+            padding: 40px;
+            width: 80%;
+            max-width: 1200px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        /* Upload Form Section */
+        .upload-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 48%;
+        }
+
+        .upload-card h3 {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #00796b;
+        }
+
+        .score-card {
+            background-color: rgba(255, 255, 255, 0.9);
+            text-align: center;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 48%;
+        }
+
+        .score-card h3 {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #28a745;
+        }
+
+        .score-card p {
+            font-size: 1.2rem;
+            color: #6c757d;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            margin-bottom: 40px;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .banner {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .upload-card, .score-card {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+        }
+    </style>
+    <style>/* Flexbox layout for navbar */
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 20px; /* Adds space between each nav item */
+        }
+        
+        .nav-links .dropdown {
+            position: relative; /* Needed for positioning the dropdown */
+        }
+        
+        .nav-links .dropdown .dropdown-menu {
+            display: none; /* Hide dropdown menu by default */
+            position: absolute;
+            top: 100%; /* Position the dropdown directly below the Templates link */
+            left: 0;
+            background-color: #fff;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+            z-index: 1;
+        }
+        
+        .nav-links .dropdown:hover .dropdown-menu {
+            display: block; /* Show dropdown on hover */
+        }
+        
+        .nav-links .dropdown .dropdown-menu a {
+            display: block;
+            padding: 10px 20px;
+            color: #333;
+            text-decoration: none;
+        }
+        
+        .nav-links .dropdown .dropdown-menu a:hover {
+            background-color: #f1f1f1;
+        }
+        </style>
+</head>
+<body>
+        <!-- Navbar -->
+<header class="navbar">
+    <div class="logo">
+        <img src="{% static 'img/Resume.png' %}" alt="Logo">
+        <span><h2>ResumeCraft</h2></span>
+    </div>
+    <div class="nav-links">
+        <a href="{% url 'landing' %}">Home</a>
+        <a href="{% url 'beginResume' %}">About</a>
+        
+        <!-- Dropdown for Templates -->
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle">Templates</a>
+            <div class="dropdown-menu">
+                <a href="{% url 'resume_templates' %}">Get & Go</a>
+                <a href="{% url 'editableTemplates' %}">Work with us</a>
+            </div>
+        </div>
+
+        <a href="{% url 'upload_file' %}">ATS</a>
+        <a href="{% url 'logout' %}">Logout</a>
+    </div>
+</header>
+
+    <!-- Main content -->
+    <div class="banner">
+        <!-- Left Section: Upload Resume -->
+        <div class="upload-card">
+            <h3>Upload Your Resume</h3>
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-primary w-100">Analyze</button>
+            </form>
+        </div>
+
+        <!-- Right Section: ATS Score -->
+        <div class="score-card">
+            {% if score %}
+                <h3>ATS Resume Score: {{ score }}%</h3>
+                <p class="alert-info">
+                    Feedback saved to: 
+                    <a href="{{ feedback_path }}" download="feedback.txt" target="_blank">Download Feedback</a>
+                </p>
+            {% elif error %}
+                <p class="error-message">{{ error }}</p>
+            {% else %}
+                <p>Upload a resume to see your score.</p>
+            {% endif %}
+        </div>
+    </div>
+
+    <!-- Bootstrap JS (optional, for interactive components) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

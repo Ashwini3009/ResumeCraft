@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Resume - Ian Hansson</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(35, 35, 35, 0.1);
+    }
+
+    header {
+      background-color: #00bfa6;
+      padding: 40px 20px;
+      text-align: center;
+      border-radius: 10px 10px 0 0;
+      color: white;
+    }
+
+    .name {
+      font-size: 40px;
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+
+    .title {
+      font-size: 22px;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    h2 {
+      font-size: 24px;
+      color: white;
+      margin-bottom: 10px;
+      position: relative;
+      padding-bottom: 5px;
+      background-color: #5c5b5b;
+      padding: 10px;
+      border-radius: 5px;
+    }
+
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 50px;
+      height: 2px;
+      background-color: #00bfa6;
+    }
+
+    ul {
+      list-style-type: none;
+    }
+
+    ul li {
+      margin: 5px 0;
+    }
+
+    ul li a {
+      color: #00bfa6;
+      text-decoration: none;
+    }
+
+    ul li a:hover {
+      text-decoration: underline;
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px 0;
+      background-color: #00bfa6;
+      color: white;
+      border-radius: 0 0 10px 10px;
+    }
+
+    [contenteditable] {
+      outline: 2px dashed #00bfa6;
+      outline-offset: 4px;
+    }
+
+    .save-btn {
+      display: block;
+      margin: 20px auto;
+      padding: 10px 20px;
+      background-color: #00bfa6;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .save-btn:hover {
+      background-color: #008f80;
+    }
+
+    .main-content {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .experience, .skills, .education, .certifications {
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .experience, .skills {
+        width: 48%;
+      }
+      .education, .certifications {
+        width: 48%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="resume" class="container" contenteditable="true">
+    <header>
+      <div class="name-title">
+        <h1 class="name">IAN HANSSON</h1>
+        <p class="title">Graphic Designer | UI/UX Engineer | Developer</p>
+      </div>
+    </header>
+
+    <section class="profile">
+      <h2>PROFILE</h2>
+      <p>Enthusiastic and creative graphic designer with a passion for translating ideas into visually compelling designs. With experience in both print and digital mediums, I thrive on bringing concepts to life through innovative and impactful designs.</p>
+    </section>
+
+    <section class="contact">
+      <h2>CONTACT</h2>
+      <ul>
+        <li>Phone: 816-555-0146</li>
+        <li>LinkedIn: <a href="#">ian_hansson</a></li>
+        <li>Email: <a href="mailto:hansson@example.com">hansson@example.com</a></li>
+        <li>Website: <a href="#">www.example.com</a></li>
+      </ul>
+    </section>
+
+    <section class="main-content">
+      <div class="experience">
+        <h2>EXPERIENCE</h2>
+        <div class="job">
+          <h3>Adatum Corporation</h3>
+          <p><strong>20xx-present</strong></p>
+          <ul>
+            <li>Developed and evolved brand identities</li>
+            <li>Crafted compelling collateral and oversaw project lifecycles</li>
+            <li>Mentored junior designers</li>
+          </ul>
+        </div>
+        <div class="job">
+          <h3>Proseware, Inc.</h3>
+          <p><strong>20xx-20xx</strong></p>
+          <ul>
+            <li>Involved in various stages of project lifecycles</li>
+            <li>Contributed to award-winning projects</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="skills">
+        <h2>SKILLS</h2>
+        <ul>
+          <li>Design Software</li>
+          <li>Typography</li>
+          <li>UI/UX Design</li>
+          <li>Print Design</li>
+          <li>Project Management</li>
+          <li>Creative Problem Solving</li>
+          <li>Communication Skills</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="two-column">
+      <div class="education">
+        <h2>EDUCATION</h2>
+        <div class="degree">
+          <h3>Graphic Design Institute</h3>
+          <p><strong>Master of Fine Arts, Graphic Design</strong></p>
+          <p>20xx-20xx</p>
+        </div>
+        <div class="degree">
+          <h3>Jasper University</h3>
+          <p><strong>Bachelor of Arts, Graphic Design</strong></p>
+          <p>20xx-20xx</p>
+        </div>
+      </div>
+
+      <div class="certifications">
+        <h2>CERTIFICATIONS</h2>
+        <ul>
+          <li>Certified UI/UX Designer</li>
+          <li>Advanced Typography Techniques</li>
+          <li>Project Management Certification</li>
+        </ul>
+      </div>
+    </section>
+
+    <footer>
+      <p>Resume - Ian Hansson | All rights reserved</p>
+    </footer>
+  </div>
+
+  <button class="save-btn" onclick="saveAsPDF()">Save as PDF</button>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.9.3/html2pdf.bundle.min.js"></script>
+  <script>
+    function saveAsPDF() {
+      const element = document.getElementById('resume');
+      const opt = {
+        margin: 0.5,
+        filename: 'Resume_Ian_Hansson.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: { scale: 2 },
+        jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
+      };
+
+      html2pdf().set(opt).from(element).save();
+    }
+  </script>
+</body>
+</html>

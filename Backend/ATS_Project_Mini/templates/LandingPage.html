@@ -1,0 +1,166 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ResumeCraft</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<style>/* Flexbox layout for navbar */
+    .nav-links {
+        display: flex;
+        align-items: center;
+        gap: 20px; /* Adds space between each nav item */
+    }
+    
+    .nav-links .dropdown {
+        position: relative; /* Needed for positioning the dropdown */
+    }
+    
+    .nav-links .dropdown .dropdown-menu {
+        display: none; /* Hide dropdown menu by default */
+        position: absolute;
+        top: 100%; /* Position the dropdown directly below the Templates link */
+        left: 0;
+        background-color: #fff;
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+        z-index: 1;
+    }
+    
+    .nav-links .dropdown:hover .dropdown-menu {
+        display: block; /* Show dropdown on hover */
+    }
+    
+    .nav-links .dropdown .dropdown-menu a {
+        display: block;
+        padding: 10px 20px;
+        color: #333;
+        text-decoration: none;
+    }
+    
+    .nav-links .dropdown .dropdown-menu a:hover {
+        background-color: #f1f1f1;
+    }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+<header class="navbar">
+    <div class="logo">
+        <img src="{% static 'img/Resume.png' %}" alt="Logo">
+        <span><h2>ResumeCraft</h2></span>
+    </div>
+    <div class="nav-links">
+        <a href="{% url 'landing' %}">Home</a>
+        <a href="{% url 'about_us' %}">About</a>
+        
+        <!-- Dropdown for Templates -->
+        <div class="dropdown">
+            <a href="#" class="dropdown-toggle">Templates</a>
+            <div class="dropdown-menu">
+                <a href="{% url 'resume_templates' %}">Get & Go</a>
+                <a href="{% url 'editableTemplates' %}">Work with us</a>
+            </div>
+        </div>
+
+        <a href="{% url 'upload_file' %}">ATS</a>
+        {% if request.session.user_id %}
+            <!-- Show Logout if the user is logged in -->
+            <a href="{% url 'logout' %}">Logout</a>
+        {% else %}
+            <!-- Show Login if the user is not logged in -->
+            <a href="{% url 'login' %}">Login</a>
+        {% endif %}
+        <!-- <a href="{% url 'login' %}">Login</a>
+        <a href="{% url 'logout' %}" >Logout</a> -->
+    </div>
+</header>
+
+    
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-text">
+            <h1>The Best Online Resume Builder</h1>
+            <p>Easily create the perfect resume for any job using our best-in-class resume builder platform.</p>
+            <div class="hero-buttons">
+                <a href="{% url 'editableTemplates' %}" ><button class="create-btn">Create My Resume Now</button></a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="{% static 'img/home1.png' %}" alt="Resume Preview">
+        </div>
+    </section>
+    
+    <!-- Templates Section
+    <section class="templates" id="templates">
+        <div class="section-title">
+            <h2>Explore Our Resume Templates</h2>
+            <p>Choose from a variety of professional and modern resume templates.</p>
+        </div>
+        <div class="template-grid">
+            <div class="template-card">
+                <img src="{% static 'img/home1.png' %}" alt="Template 1">
+                <h3>Modern Resume</h3>
+                <button onclick="useTemplate('home1')">Use This Template</button>
+            </div>
+            <div class="template-card">
+                <img src="{% static 'img/home1.png' %}" alt="Template 2">
+                <h3>Professional Resume</h3>
+                <button onclick="useTemplate('template1')">Use This Template</button>
+            </div>
+            <div class="template-card">
+                <img src="{% static 'img/home1.png' %}" alt="Template 3">
+                <h3>Creative Resume</h3>
+                <button onclick="useTemplate('template1')">Use This Template</button>
+            </div>
+            <div class="template-card">
+                <img src="{% static 'img/template4.png' %}" alt="Template 4">
+                <h3>ATS-Friendly Resume</h3>
+                <button>Use This Template</button>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- <div class="container">
+        <h1>ATS Resume Scanner</h1>
+        <p>Upload your resume in PDF or DOCX format to get an ATS score.</p>
+        <input type="file" id="fileInput" accept=".pdf, .docx">
+        <button id="scanBtn">Scan Resume</button>
+        <div id="result">
+            <h2>ATS Score:</h2>
+            <p id="score"></p>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.4.2/mammoth.browser.min.js"></script>
+
+    Footer -->
+    <!-- <footer class="footer">
+        About Us<br>
+        ResumeCraft is the premier resource for job seekers. You can get access to:
+        <ul>
+            <li>Our cutting-edge resume craft</li>
+            <li>Specialized resume templates and examples crafted by certified resume writers</li>
+            <li>Guidance on making an ideal resume, including what keywords and relevant experience to use</li>
+        </ul>
+        <p>&copy; 2024 ResumeCraft. All rights reserved.</p>
+    </footer> -->
+
+    <script src="{% static 'JS/script.js' %}"></script>
+    <!-- <script>
+        // JavaScript function to redirect to the login page
+        function redirectToLogin() {
+            window.location.href = 'login.html';
+        }
+
+        // Function to redirect to the editor page with the selected template
+        function useTemplate(templateName) {
+            window.location.href = `editor.html?template=${templateName}`;
+        }
+    </script> -->
+</body>
+</html>
